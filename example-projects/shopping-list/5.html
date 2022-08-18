@@ -4,7 +4,7 @@
 
 # Create code and button to clear checked items
 
-* Add a new method (deleteCheckedItems) to delete all checked shopping list items
+* Add a new method (deleteCheckedItems) to filter out all checked shopping list items
 * Add a button "Delete checked items" which calls deleteCheckedItems when @click'ed
 
 -->
@@ -104,16 +104,10 @@
                 },
 
                 deleteCheckedItems() {
-                    // Iterate over all shopping list items
-                    for (itemNumber in this.shoppingList) {
-
-                        // Is the item checked?
-                        if (this.shoppingList[itemNumber].checked) {
-
-                            // If so then delete it using the splice function
-                            this.shoppingList.splice(itemNumber, 1)
-                        }
-                    }
+                    // Run a filter over shoppingList that only returns items if .checked = false
+                    this.shoppingList = this.shoppingList.filter(listItem => {
+                        return listItem.checked == false;
+                    })
                 }
 
             },

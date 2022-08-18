@@ -113,16 +113,10 @@
                 },
 
                 deleteCheckedItems() {
-                    // Iterate over all shopping list items
-                    for (itemNumber in this.shoppingList) {
-
-                        // Is the item checked?
-                        if (this.shoppingList[itemNumber].checked) {
-
-                            // If so then delete it using the splice function
-                            this.shoppingList.splice(itemNumber, 1)
-                        }
-                    }
+                    // Run a filter over shoppingList that only returns items if .checked = false
+                    this.shoppingList = this.shoppingList.filter(listItem => {
+                        return listItem.checked == false;
+                    })
                 }
 
             },
